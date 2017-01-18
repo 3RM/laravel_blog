@@ -17,5 +17,5 @@
 		<td><span class="del">Удалить</span></td>
 	</tr>
 </table>
-@endforeach
+
 @endsection

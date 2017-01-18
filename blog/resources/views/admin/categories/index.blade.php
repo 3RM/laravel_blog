@@ -12,11 +12,22 @@
 	<tr>
 		<td>{{$category->id}}</td>
 		<td>{{$category->title}}</td>
+		
 		<td>			
-			<a href="/adminzone/categories/{{$category->id}}/edit">Изменить</a>
+			<a href="/adminzone/categories/edit/{{$category->id}}">Изменить</a>
 		</td>
-		<td><span class="del">Удалить</span></td>
+		<td>
+			<form action="/adminzone/categories/delete/<?= $category['id']?>" method="POST">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+
+                                <button class="btn btn-danger">Удалить категорию</button>
+			</form>
+		</td>
 	</tr>	
 @endforeach
 </table>
+@if(Session::has('message'))
+{{Session::get('message')}}
+@endif
 @endsection
