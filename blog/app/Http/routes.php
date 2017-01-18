@@ -29,4 +29,5 @@ Route::get('/', function(){
 	return 'Заглушка для главной страницы';
 });
 
-Route::resource('Articles','ArticlesController');
+//Route::get('/articles/create', 'ArticlesController@create');
+Route::resource('adminzone/articles','ArticlesController');
