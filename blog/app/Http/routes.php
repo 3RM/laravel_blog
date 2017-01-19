@@ -25,9 +25,9 @@ Route::group(['prefix' => 'adminzone'], function(){
 		Route::get('/categories/edit/{category}', 'CategoriesController@edit');
 		Route::post('/categories/edit/{category}', 'CategoriesController@save');		
 });
-Route::get('/', function(){
-	return 'Заглушка для главной страницы';
-});
 
-//Route::get('/articles/create', 'ArticlesController@create');
+Route::get('/', 'FrontController@index');// Главная
+Route::get('/show/{article}','FrontController@show');
+
 Route::resource('adminzone/articles','ArticlesController');
+Route::resource('adminzone/pages','PagesController');

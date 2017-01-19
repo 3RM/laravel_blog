@@ -1,0 +1,9 @@
+@extends('admin.main')
+@section('content')
+<table>
+	<tr>
+		<td>{{$page->title}}</td>
+		<td>{{$page->content}}</td>
+	</tr>
+</table>
+@endsection

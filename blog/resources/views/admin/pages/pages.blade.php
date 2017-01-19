@@ -3,19 +3,17 @@
 <table>
 	<tr>
 		<td>id</td>
-		<td>Миниатюра</td>
 		<td>Название</td>
 		<td>Действие</td>
 		<td>Действие</td>
 	</tr>
-	@foreach ($articles as $article)
+	@foreach ($pages as $page)
 	<tr>
-		<td>{{$article->id}}</td>
-		<td><img width=35 height=35 src="{{$article->preview}}"></td>
-		<td><a href="/adminzone/articles/{{$article->id}}">{{$article->title}}</a></td>
-		<td> <a href="{{action('ArticlesController@edit',['articles'=>$article->id])}}">Изменить</a></td>
+		<td>{{$page->id}}</td>
+		<td><a href="/adminzone/pages/{{$page->id}}">{{$page->title}}</a></td>
+		<td> <a href="{{action('PagesController@edit',['pages'=>$page->id])}}">Изменить</a></td>
 		<td> 
-			<form method="POST" action="{{action('ArticlesController@destroy',['articles'=>$article->id])}}">
+			<form method="POST" action="{{action('PagesController@destroy',['pages'=>$page->id])}}">
 				<input type="hidden" name="_method" value="delete"/>
 				<input type="hidden" name="_token" value="{{csrf_token()}}"/>
 				<input type="submit" value="Удалить"/>

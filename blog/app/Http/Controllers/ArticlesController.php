@@ -72,7 +72,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Article::find($id);
+		return View::make('admin.articles.show',['article' => $article]);
     }
 
     /**
@@ -126,7 +127,9 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+		$article->delete();
+		return back()->with('message', "Категория ".$article->title." удалена");
     }
 }
 

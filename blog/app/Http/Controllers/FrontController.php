@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Page;
+use App\Article;
 use View;
 
-class PagesController extends Controller
+//use App\Http\Controllers\Controller;
+
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +20,8 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages = Page::all();
-		return View::make('admin.pages.pages',['pages' => $pages]);
+        $articles = Article::where('public','=','1')->get();
+		return View::make('site.index',['articles'=>$articles]);
     }
 
     /**
@@ -29,7 +31,7 @@ class PagesController extends Controller
      */
     public function create()
     {
-        return View::make('admin.pages.create');
+        //
     }
 
     /**
@@ -40,12 +42,7 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255',
-			'content' => 'required|max:255',
-        ]);
-        Page::create($request->all());
-		return back()->with('message','Страница добавлена');
+        //
     }
 
     /**
@@ -54,11 +51,10 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $page = Page::find($id);
-		return View::make('admin.pages.show',['page'=>$page]);
-    }
+    public function show($id){
+		$article=Article::where('public','=',1)->find($id); //показываем статью если она опубликована
+		return view('site.show',['article'=>$article]);
+	}
 
     /**
      * Show the form for editing the specified resource.
@@ -68,8 +64,7 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        $page = Page::find($id);
-		return View::make('admin.pages.edit',['page'=>$page]);
+        //
     }
 
     /**
@@ -81,9 +76,7 @@ class PagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-		$page = Page::find($id);
-        $page->update($request->all());        
-		return back()->with('message', 'Страница изменена');
+        //
     }
 
     /**
@@ -94,8 +87,6 @@ class PagesController extends Controller
      */
     public function destroy($id)
     {
-        $page = Page::find($id);
-		$page->delete();
-		return back()->with('message', "Страница ".$page->title." удалена");
+        //
     }
 }
