@@ -11,23 +11,17 @@
 |
 */
 
+Route::get('/', 'FrontController@index');// Главная
+Route::get('/show/{article}','FrontController@show');
+
 Route::group(['prefix' => 'adminzone'], function(){
 	
 		Route::get('/',function (){
 			return view('admin.dashboard');
 		});
-		Route::get('/categories/create','CategoriesController@create');	
-		Route::post('/categories/create','CategoriesController@store');
-			
-		Route::get('/categories','CategoriesController@index');	
 		
-		Route::delete('/categories/delete/{category}', 'CategoriesController@destroy');
-		Route::get('/categories/edit/{category}', 'CategoriesController@edit');
-		Route::post('/categories/edit/{category}', 'CategoriesController@save');		
+		Route::resource('articles','ArticlesController');
+		Route::resource('pages','PagesController');
+		Route::resource('categories','CategoriesController');
+		
 });
-
-Route::get('/', 'FrontController@index');// Главная
-Route::get('/show/{article}','FrontController@show');
-
-Route::resource('adminzone/articles','ArticlesController');
-Route::resource('adminzone/pages','PagesController');

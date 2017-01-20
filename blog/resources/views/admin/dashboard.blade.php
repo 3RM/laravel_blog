@@ -23,12 +23,13 @@
 				</ul>
 			<h2>Комментарии</h2>
 				<ul class="nav nav-pills nav-stacked">
-					<li><a href="/adminzone/comments"><i class="fa fa-pencil fa-fw""></i>Все комментарии</a></li>                
+					<li><a href="/adminzone/comments"><i class="fa fa-pencil fa-fw"></i>Все комментарии</a></li>                
 				</ul>
 			</div>
 			<h2>Страницы</h2>
-			<div class="col-md-9 well">
-				Vertical admin menu
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="/adminzone/pages"><i class="fa fa-pencil fa-fw"></i>Все страницы</a></li>                
+				</ul>
 			</div>
 		</div>
 		</div>
