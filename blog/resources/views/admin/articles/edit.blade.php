@@ -4,7 +4,7 @@
 	<input type="hidden" name="_method" value="put">
 	Превью:<br>
 	@if(!empty($article->preview))
-		<img src="{{$article->preview}}">
+		<img width="100" height="100" src="{{$article->preview}}">
 	@endif
 	<input type="file" name="preview"><br>
 	Название статьи:<br>

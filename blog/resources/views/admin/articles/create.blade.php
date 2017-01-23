@@ -14,7 +14,7 @@
 
 Текст статьи:<br>
 
-<textarea name="content"></textarea><br>
+<textarea name="content" id="editor"></textarea><br>
 
 Категория:<br>
 

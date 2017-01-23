@@ -6,6 +6,10 @@
 	<link rel="stylesheet" href="{{asset('css/admin.css')}}">
 	<script src="{{asset('js/jquery-3.1.1.min.js')}}"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="{{asset('js/tinymce/tinymce.min.js')}}"></script>
+	<script>
+		tinymce.init({selector: '#editor'});
+	</script>
 </head> 
 <body> 
 	<div id="header">

@@ -3,6 +3,7 @@
 <table>
 	<tr>
 		<td>{{$article->title}}</td>
+		<td>{!!$article->content!!}</td>
 	</tr>
 </table>
 @endsection
